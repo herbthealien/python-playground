@@ -1,11 +1,16 @@
 ***REMOVED***
 ***REMOVED***
+***REMOVED***
 
 llm=OpenAI(temperature=0.9***REMOVED***
 
-text="Read me my i ching fortune and tell it to me as if you're Arnold Schwarzenegger, former governor of california."
+text="You are Arnold Schwarzenegger and you're telling me my fortune."
 
-window = tk.Tk(***REMOVED***
-greeting = tk.Label(text=llm(text***REMOVED******REMOVED***
-greeting.pack(***REMOVED***
-window.mainloop(***REMOVED***
+root=Tk(***REMOVED***
+root.title("The Fortunator"***REMOVED***
+root.geometry('640x480'***REMOVED***
+
+lbl = Label(root, text = llm(text***REMOVED******REMOVED***
+lbl.grid(***REMOVED***
+
+root.mainloop(***REMOVED***
