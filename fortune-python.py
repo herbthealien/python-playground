@@ -1,4 +1,4 @@
-mport tkinter as tk
+import tkinter as tk
 from tkinter import *
 from langchain.llms import OpenAI
 from PIL import Image, ImageTk
