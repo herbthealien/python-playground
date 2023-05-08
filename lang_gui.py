@@ -6,6 +6,7 @@ from langchain.memory import ConversationBufferMemory
 from langchain.chat_models import ChatOpenAI
 from langchain.prompts import PromptTemplate
 import pyfiglet
+import sys
 
 llm1=OpenAI(temperature=0.9)
 
@@ -20,13 +21,10 @@ tag.pack(pady=20)
 intro=Label(root, text="Please specify what language you want to practice", wraplength=500, justify="center")
 intro.pack(pady=20)
 
-inputtxt = tk.Text(root,
-                   height = 5,
+inputtxt = Entry(root,
                    width = 20)
   
 inputtxt.pack()
-
-inp = inputtxt.get(1.0, "end-1c")
 
 #firstinput=input()
 
@@ -44,8 +42,12 @@ inp = inputtxt.get(1.0, "end-1c")
 
 #convo.run(input())
 
+s1 = "Sure, I'm happy to help you practice "
+
+s2 = ". Please specify your competency level."
+
 def lang1():
-   tag["text"] = "Sure, I'm happy to help you practice " + inp + ". Please specify your competency level."
+   tag["text"] = s1 + inputtxt.get() + s2
 
 B = Button(root, text='Specify Language', command=lang1)
 B.pack(pady=20)
