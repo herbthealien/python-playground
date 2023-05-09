@@ -10,7 +10,6 @@ import sys
 
 llm1=OpenAI(temperature=0.9)
 
-
 root=Tk()
 root.title("FluentAi")
 root.geometry('640x480')
@@ -26,10 +25,13 @@ inputtxt = Entry(root,
 
 inputskill = Entry(root,
                    width = 20)
+
+inputanswer = Entry(root,
+                    width = 20)
   
 inputtxt.pack()
 
-#firstinput=input()
+#firstinput=inputanswer.get()
 
 #proompty = PromptTemplate(
 #    input_variables=["firstinput"],
@@ -79,6 +81,7 @@ def g1():
    work.pack_forget()
    culture.pack_forget()
    day2day.pack_forget()
+   inputanswer.pack()
    ans.pack()
 
 def f1():
@@ -90,6 +93,7 @@ def f1():
    work.pack_forget()
    culture.pack_forget()
    day2day.pack_forget()
+   inputanswer.pack()
    ans.pack()
 
 def w1():
@@ -101,6 +105,7 @@ def w1():
    work.pack_forget()
    culture.pack_forget()
    day2day.pack_forget()
+   inputanswer.pack()
    ans.pack()
 
 def c1():
@@ -112,6 +117,7 @@ def c1():
    work.pack_forget()
    culture.pack_forget()
    day2day.pack_forget()
+   inputanswer.pack()
    ans.pack()
 
 def d2d1():
@@ -123,6 +129,7 @@ def d2d1():
    work.pack_forget()
    culture.pack_forget()
    day2day.pack_forget()
+   inputanswer.pack()
    ans.pack()
 
 def answer():
