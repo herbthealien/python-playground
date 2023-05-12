@@ -1,3 +1,4 @@
+from re import M
 import tkinter as tk
 from tkinter import *
 from langchain.llms import OpenAI
@@ -39,13 +40,7 @@ s2 = ". Please specify your competency level."
 
 prawmptuh = PromptTemplate(
    input_variables=["firstinput"],
-   template="""{firstinput} am a person that only speaks English who has come to you for guidance on how to speak """ +langinput.get()+ """.
-    You are a fluent speaker of """ +langinput.get()+ """ and an expert instructor that can work around any individual challenges I
-    might have as a beginner to help me learn """ +langinput.get()+ """.
-    Contruct an exercise for me at the skill level of """ +inputskill.get()+ """. Instruct me to answer the
-    question. When I answer, take my response and let me know if my response was correct or not, then give me another exercise based 
-    on fuzzy logic regarding how well I understood the previous question. Ensure that all of your questions have to do with this subject
-    matter: """ +sub+ """."""
+   template="""{firstinput}"""
 )
 
 convo = ConversationChain(
@@ -55,7 +50,30 @@ convo = ConversationChain(
 
 lang = langinput.get()
 
-ques = convo.run(prawmptuh.format(firstinput="I"))
+ques = convo.run(prawmptuh.format(firstinput="""I am a person that only speaks English who has come to you for guidance on how to speak another lanuage.
+    You are a fluent speaker of the language and an expert instructor that can work around any individual challenges I
+    might have as a beginner to help me learn the language. The language I want to learn is specified below.
+    
+    Language: European Portuguese
+
+    I've provided my own skill level to dictate how difficult my exercises should be. Please tailor all questions you ask me to the skill level
+    listed below.
+
+    Skill level: Beginner
+
+    Once you know the language I'm trying to learn, use that knowledge along with the knowledge that I'm only fluent in
+    English to contruct an exercise that you will instruct me to answer. When I answer, take my response and let me know
+    if my response was correct or not, then give me another exercise based on fuzzy logic regarding how well I understood the
+    exercise.
+    
+    Be sure to vary the exercise questions. Sometimes, offer multiple choices. Other times, ask a question and expect a response.
+    Other times, provide a sentence for me to complete in the target language.
+    
+    All of the questions you ask me need to be related to a specific subject theme, as language related to this subject is what I want
+    to practice with you. My subject theme is listed below.
+    
+    Subject: Food."""
+))
 
 ques2 = convo.run(inputanswer.get())
 
